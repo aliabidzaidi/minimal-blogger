@@ -11,8 +11,8 @@ var knex = Knex({
 });
 function createWindow() {
     win = new electron_1.BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1000,
+        height: 800,
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: false
