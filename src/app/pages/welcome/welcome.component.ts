@@ -10,20 +10,29 @@ import { DbCallerService } from 'src/sdk/data-access/dbCaller.service';
 export class WelcomeComponent implements OnInit {
 
   names: any[] = [{ FirstName: 'One' }, { FirstName: 'Two' }];
-  
+  users: any[] = [];
+
   constructor(
     private dbService: DbCallerService
   ) { }
 
   ngOnInit() {
-    this.getNames();
+    // this.getNames();
+    this.getUsersFromDb();
   }
 
-  getNames() {
-    this.dbService.knexObj.select("FirstName").from("User").then((rows) => {
-      console.log(rows);
-      console.log(this.names);
-      this.names = rows;
+  // getNames() {
+  //   this.dbService.knexObj.select("FirstName").from("User").then((rows) => {
+  //     console.log(rows);
+  //     console.log(this.names);
+  //     this.names = rows;
+  //   });
+  // }
+
+  getUsersFromDb() {
+    this.dbService.getAllUsers().then((data) => {
+      console.log('Inside welcome component =>', data);
+      this.users = data;
     });
   }
 

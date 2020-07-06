@@ -40,13 +40,11 @@ export class DbCallerService {
     }
   }
 
-  getNames() {
+  getAllUsers(): Promise<any> {
     console.log('get names called');
     let names: any[];
-    this.knexObj.select("FirstName").from("User").then(function (rows) {
-      names = rows;
-      console.log("knex returned => ", rows);
-    });
-    return names;
+    return this.knexObj.select("*").from("User");
   }
+
+
 }
