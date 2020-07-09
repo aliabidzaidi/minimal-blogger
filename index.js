@@ -11,8 +11,10 @@ var knex = Knex({
 });
 function createWindow() {
     win = new electron_1.BrowserWindow({
-        width: 1000,
+        width: 1280,
         height: 800,
+        icon: 'src/assets/minBlogger-grey.ico',
+        // frame: false,
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: false

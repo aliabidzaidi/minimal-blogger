@@ -14,8 +14,10 @@ let knex = Knex({
 
 function createWindow(): BrowserWindow {
   win = new BrowserWindow({
-    width: 1000,
+    width: 1280,
     height: 800,
+    icon: 'src/assets/minBlogger-grey.ico',
+    // frame: false,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: false

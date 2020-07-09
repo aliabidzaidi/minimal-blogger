@@ -1,10 +1,14 @@
+<!-- ![minBlogger logo](src/assets/minBlogger-grey.ico) -->
+<img src="src/assets/minBlogger-grey.ico" width="48">
 # :ledger: MinimalBlogger :pencil:
+<!-- <img src="src/assets/minBlogger-logo.svg" style="margin:10px 40px;" height="80"> -->
+
 
  A Minimal Blogger as a desktop application, would you use it ?
 
-
 Under development 🔃
-<img src="https://media.giphy.com/media/fVeAI9dyD5ssIFyOyM/giphy.gif" style="margin:20px 0" height="200">
+
+![under development](src/assets/giphy.gif)
 
 ## Development server
 `

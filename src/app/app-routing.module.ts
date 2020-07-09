@@ -6,7 +6,7 @@ import { LoginRedirectGuard } from 'src/sdk/guards/login-redirect.guard';
 import { LoginGuard } from 'src/sdk/guards/login.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home', canActivate: [LoginGuard] },
+  { path: '', pathMatch: 'full', redirectTo: '/login', canActivate: [LoginGuard] },
   { path: 'login', component: LoginComponent, canActivate: [LoginRedirectGuard]},
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
