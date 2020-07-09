@@ -39,8 +39,8 @@ function createWindow(): BrowserWindow {
   //   });
   // });
 
-  knex.select("FirstName").from("User").then(function (rows) {
-    console.log("electron returned => ", rows);
+  knex.select("*").from("User").then((rows) => {
+    console.log("Testing sqlite in electron with * Users => ", rows);
   });
 
 

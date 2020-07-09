@@ -32,8 +32,8 @@ function createWindow() {
     //     win.webContents.send("resultSent", rows);
     //   });
     // });
-    knex.select("FirstName").from("User").then(function (rows) {
-        console.log("electron returned => ", rows);
+    knex.select("*").from("User").then(function (rows) {
+        console.log("Testing sqlite in electron with * Users => ", rows);
     });
     // win.webContents.on('did-finish-load', () => {
     //   ipcMain.on('ping', (event, arg) => {

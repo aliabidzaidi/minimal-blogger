@@ -1,0 +1,62 @@
+<!-- <div class="parent"> -->
+<div nz-row nzAlign="middle" class="parent-row height-100" nzJustify="center">
+  <div nz-col nzSpan="{{nzSpanLeft}}" class="panel-left">
+    <!-- <div class="login-form height-100"> -->
+
+    <div nz-row nzAlign="middle" nzJustify="center" class="height-100 span-left-row">
+
+      <div nz-col nzSpan="24" class="text-center login-heading">
+        <h1 class="">Login</h1>
+        <h2 class="minblogger-heading">MinBlogger</h2>
+      </div>
+      <div nz-col nzSpan="24">
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your username!">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="userName" placeholder="Username" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your Password!">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="password" placeholder="Password" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <div nz-row class="login-form-margin">
+            <div nz-col [nzSpan]="12" class="text-center">
+              <!-- <label nz-checkbox formControlName="remember">
+              </label> -->
+              <nz-switch formControlName="remember" nzSize="small" class="remember-switch" [nzCheckedChildren]="checkedTemplate" [nzUnCheckedChildren]="unCheckedTemplate"></nz-switch>
+              <span class="remember-text">Remember me</span>
+
+              <ng-template #checkedTemplate><i nz-icon nzType="check"></i></ng-template>
+              <ng-template #unCheckedTemplate><i nz-icon nzType="close"></i></ng-template>
+            </div>
+            <div nz-col [nzSpan]="12" class="text-center">
+              <a class="">Forgot password</a>
+            </div>
+          </div>
+          <button nz-button class="login-form-button login-form-margin text-center" nzType="primary">Log in</button>
+          <div nz-col [nzSpan]="24" class="text-center">
+            Or <a> register now! </a>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+  <div nz-col nzSpan="{{nzSpanRight}}" class="panel-right">
+
+    <div nz-row nzAlign="middle" nzJustify="center" class="height-100 span-left-row">
+      <i nz-icon nzType="pic-right" nzTheme="outline" class="minblogger-logo"></i>
+
+    </div>
+  </div>
+
+</div>
+<!-- </div> -->
