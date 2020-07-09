@@ -1,6 +1,5 @@
 <!-- ![minBlogger logo](src/assets/minBlogger-grey.ico) -->
-<img src="src/assets/minBlogger-grey.ico" width="48">
-# :ledger: MinimalBlogger :pencil:
+<h2> <img src="src/assets/minBlogger-grey.ico" width="48">  MinimalBlogger :pencil: </h2>
 <!-- <img src="src/assets/minBlogger-logo.svg" style="margin:10px 40px;" height="80"> -->
 
 

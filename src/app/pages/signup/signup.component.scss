@@ -1,0 +1,82 @@
+.parent {
+  height: 100%;
+}
+
+.parent-row {
+  background-color: #0000000e;
+}
+
+
+// [nz-form] {
+//   max-width: 600px;
+// }
+
+$border-radius: 5px;
+
+.panel-left {
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+  height: 80%;
+  background-color: #fff;
+  background-color: #ca5116;
+}
+
+.panel-right {
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  height: 80%;
+  background-color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.span-left-row {
+  align-content: space-evenly;
+}
+
+h2{
+  margin-bottom: 0;
+}
+
+.signup-heading {
+  margin-bottom: -1.5em;
+}
+
+.signup-form {
+  margin: auto;
+  max-width: 600px;
+}
+
+.signup-form-margin {
+  margin-bottom: 16px;
+}
+
+.signup-form-button {
+  width: 100%;
+}
+
+.remember-switch {
+  vertical-align: text-bottom;
+}
+
+.remember-text {
+  margin: 0 10px;
+}
+
+.minblogger-logo {
+  font-size: 150px;
+  color: #fff;
+}
+
+.minblogger-heading {
+  color: #ca5116;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2em;
+}

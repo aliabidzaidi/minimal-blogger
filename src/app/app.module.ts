@@ -21,13 +21,16 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { SignupComponent } from './pages/signup/signup.component';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ registerLocaleData(en);
     NzInputModule,
     NzButtonModule,
     NzSwitchModule,
+    NzToolTipModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NgxElectronModule
