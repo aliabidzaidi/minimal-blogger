@@ -23,6 +23,7 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(en);
 
@@ -36,6 +37,7 @@ registerLocaleData(en);
     BrowserModule,
     AppRoutingModule,
     IconsProviderModule,
+    ToastrModule.forRoot(),
     NzIconModule,
     NzGridModule,
     NzLayoutModule,

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzFormControlComponent } from 'ng-zorro-antd/form';
 import { UserService } from 'src/sdk/data-access/User.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private uService: UserService, private router: Router) { }
+  constructor(private fb: FormBuilder, private uService: UserService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -35,6 +36,9 @@ export class LoginComponent implements OnInit {
     this.resizeSubscription$ = this.resizeObservable$.subscribe((evt) => {
       this.updateScreen(evt["target"]["innerWidth"]);
     });
+
+
+
   }
 
 
@@ -54,6 +58,9 @@ export class LoginComponent implements OnInit {
       // console.log(result);
       if (result.isAuthenticated) {
         console.log('redirect to home page');
+        this.toastr.success('Login Successful', 'Success!', {
+          timeOut: 3000
+        });
         // save user details wrt. AuthGuards
 
         // if remember ==true r&d on that keep him logged in even if he closes the app
@@ -62,6 +69,9 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/home');
       }
       else {
+        this.toastr.error('Login credentials incorrect', 'Failed!', {
+          timeOut: 3000
+        });
         console.log('password incorrect');
         // show toastr or some kind of response
       }
