@@ -3,6 +3,8 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { Observable, Subscription, fromEvent } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzFormControlComponent } from 'ng-zorro-antd/form';
+import { UserService } from 'src/sdk/data-access/User.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,11 @@ export class LoginComponent implements OnInit {
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
   isSmallScreen = false;
-  loginForm: FormGroup;
+  passwordVisible = false;
+
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private uService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -36,11 +39,33 @@ export class LoginComponent implements OnInit {
 
 
   submitForm(): void {
-    console.log('form submited');
+
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+
+
+    let iUsername = this.validateForm.get('userName').value;
+    let iPassword = this.validateForm.get('password').value;
+    let iRemember = this.validateForm.get('remember').value;
+
+    this.uService.authenticateUser(iUsername, iPassword).then((result) => {
+      // console.log(result);
+      if (result.isAuthenticated) {
+        console.log('redirect to home page');
+        // save user details wrt. AuthGuards
+
+        // if remember ==true r&d on that keep him logged in even if he closes the app
+
+        // redirect to homepage
+        this.router.navigateByUrl('/home');
+      }
+      else {
+        console.log('password incorrect');
+        // show toastr or some kind of response
+      }
+    });
   }
 
   updateScreen(width) {
@@ -55,7 +80,4 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // submitForm(){
-  //   console.log('form submitted')
-  // }
 }
