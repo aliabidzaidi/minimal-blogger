@@ -6,13 +6,14 @@ import { AuthService } from '../Auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginRedirectGuard implements CanActivate {
+export class IsLoginGuard implements CanActivate {
 
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate() {
-    if (this.authService.checkUser()) {
-      this.router.navigateByUrl('/home');
+    console.log('check user is logged in?');
+    if (!this.authService.checkUser()) {
+      this.router.navigateByUrl('/login');
     } else {
       return true;
     }

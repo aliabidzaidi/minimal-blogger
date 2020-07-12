@@ -6,6 +6,7 @@ import { NzFormControlComponent } from 'ng-zorro-antd/form';
 import { UserService } from 'src/sdk/data-access/User.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/sdk/Auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,13 @@ export class LoginComponent implements OnInit {
 
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private uService: UserService, private router: Router, private toastr: ToastrService) { }
+  constructor(
+    private fb: FormBuilder,
+    private uService: UserService,
+    private router: Router,
+    private toastr: ToastrService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -37,8 +44,6 @@ export class LoginComponent implements OnInit {
       this.updateScreen(evt["target"]["innerWidth"]);
     });
 
-
-
   }
 
 
@@ -48,7 +53,6 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-
 
     let iUsername = this.validateForm.get('userName').value;
     let iPassword = this.validateForm.get('password').value;
@@ -63,6 +67,7 @@ export class LoginComponent implements OnInit {
             timeOut: 3000
           });
           // save user details wrt. AuthGuards
+          this.authService.saveUser(result.user);
 
           // if remember ==true r&d on that keep him logged in even if he closes the app
 

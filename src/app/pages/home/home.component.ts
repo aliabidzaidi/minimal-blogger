@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/sdk/Auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,13 @@ export class HomeComponent implements OnInit {
 
   isCollapsed = false;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() { }
+
+
+  logout() {
+    this.authService.removeUser();
+    this.router.navigateByUrl('/login');
+  }
 }
