@@ -23,6 +23,8 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(en);
@@ -48,6 +50,8 @@ registerLocaleData(en);
     NzInputModule,
     NzButtonModule,
     NzSwitchModule,
+    NzDatePickerModule,
+    NzSelectModule,
     NzToolTipModule,
     HttpClientModule,
     BrowserAnimationsModule,

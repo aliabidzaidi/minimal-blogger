@@ -27,55 +27,97 @@
               </span>
             </nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your username!">
-              <input nz-input id="username" formControlName="username" />
+              <nz-input-group nzPrefixIcon="user">
+                <input nz-input id="username" formControlName="username" />
+              </nz-input-group>
             </nz-form-control>
           </nz-form-item>
 
           <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-              <input nz-input formControlName="email" id="email" />
+              <nz-input-group nzPrefixIcon="mail">
+                <input nz-input formControlName="email" id="email" />
+              </nz-input-group>
             </nz-form-control>
           </nz-form-item>
+
           <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
-              <input nz-input type="password" id="password" formControlName="password"
-                (ngModelChange)="updateConfirmValidator()" />
+              <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+                <input [type]="passwordVisible ? 'text' : 'password'" nz-input type="password" id="password"
+                  formControlName="password" (ngModelChange)="updateConfirmValidator()" />
+              </nz-input-group>
             </nz-form-control>
           </nz-form-item>
+
           <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm Password</nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
-              <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
-              <ng-template #errorTpl let-control>
-                <ng-container *ngIf="control.hasError('required')">
-                  Please confirm your password!
-                </ng-container>
-                <ng-container *ngIf="control.hasError('confirm')">
-                  Two passwords that you enter is inconsistent!
-                </ng-container>
-              </ng-template>
+              <nz-input-group nzPrefixIcon="lock" [nzSuffix]="csuffixTemplate">
+                <input [type]="cpasswordVisible ? 'text' : 'password'" nz-input type="password"
+                  formControlName="checkPassword" id="checkPassword" />
+                <ng-template #errorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">
+                    Please confirm your password!
+                  </ng-container>
+                  <ng-container *ngIf="control.hasError('confirm')">
+                    Two passwords that you enter is inconsistent!
+                  </ng-container>
+                </ng-template>
+              </nz-input-group>
+
+
             </nz-form-control>
           </nz-form-item>
-          
-          
-          <nz-form-item nz-row class="register-area">
+
+          <ng-template #suffixTemplate>
+            <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+              (click)="passwordVisible = !passwordVisible"></i>
+          </ng-template>
+
+          <ng-template #csuffixTemplate>
+            <i nz-icon [nzType]="cpasswordVisible ? 'eye-invisible' : 'eye'"
+              (click)="cpasswordVisible = !cpasswordVisible"></i>
+          </ng-template>
+
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="dateOfBirth">Date of Birth</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your Date of Birth">
+              <nz-date-picker [nzFormat]="dateFormat" formControlName="dateOfBirth" id="dateOfBirth" style="width:100%">
+              </nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="gender">Gender</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please select your gender">
+              <nz-select nzAllowClear nzPlaceHolder="Select your gender" formControlName="gender">
+                <nz-option nzLabel="Male" nzValue="Male"></nz-option>
+                <nz-option nzLabel="Female" nzValue="Female"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+
+          <!-- <nz-form-item nz-row class="register-area">
             <nz-form-control [nzSpan]="14" [nzOffset]="6">
-              <label nz-checkbox formControlName="agree">
+              <label nz-checkbox formControl="agree">
                 <span>I have read the <a>agreement</a></span>
               </label>
             </nz-form-control>
-          </nz-form-item>
+          </nz-form-item> -->
+
           <nz-form-item nz-row class="register-area">
             <nz-form-control [nzSpan]="14" [nzOffset]="6">
-              <button nz-button nzType="primary" class="signup-form-button">Register</button>
+              <button nz-button nzType="primary" class="signup-form-button"
+                [disabled]="validateForm.invalid">Register</button>
             </nz-form-control>
           </nz-form-item>
         </form>
 
         <div nz-col [nzSpan]="24" class="text-center">
-          Already a user?  <a routerLink='/login'> Login now! </a>
+          Already a user? <a routerLink='/login'> Login now! </a>
         </div>
 
 

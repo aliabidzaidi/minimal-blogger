@@ -54,28 +54,35 @@ export class LoginComponent implements OnInit {
     let iPassword = this.validateForm.get('password').value;
     let iRemember = this.validateForm.get('remember').value;
 
-    this.uService.authenticateUser(iUsername, iPassword).then((result) => {
-      // console.log(result);
-      if (result.isAuthenticated) {
-        console.log('redirect to home page');
-        this.toastr.success('Login Successful', 'Success!', {
+    this.uService.authenticateUser(iUsername, iPassword)
+      .then((result) => {
+        // console.log(result);
+        if (result.isAuthenticated) {
+          console.log('redirect to home page');
+          this.toastr.success('Login Successful', 'Success!', {
+            timeOut: 3000
+          });
+          // save user details wrt. AuthGuards
+
+          // if remember ==true r&d on that keep him logged in even if he closes the app
+
+          // redirect to homepage
+          this.router.navigateByUrl('/home');
+        }
+        else {
+          this.toastr.error('Login credentials incorrect', 'Failed!', {
+            timeOut: 3000
+          });
+          console.log('password incorrect');
+          // show toastr or some kind of response
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.toastr.error('Internal Error', 'Failed', {
           timeOut: 3000
         });
-        // save user details wrt. AuthGuards
-
-        // if remember ==true r&d on that keep him logged in even if he closes the app
-
-        // redirect to homepage
-        this.router.navigateByUrl('/home');
-      }
-      else {
-        this.toastr.error('Login credentials incorrect', 'Failed!', {
-          timeOut: 3000
-        });
-        console.log('password incorrect');
-        // show toastr or some kind of response
-      }
-    });
+      });
   }
 
   updateScreen(width) {

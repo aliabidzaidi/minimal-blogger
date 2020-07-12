@@ -22,6 +22,7 @@ export class UserService {
         connection: {
           filename: './database.sqlite',
         },
+        useNullAsDefault: true
       });
 
       this.knexObj.schema.hasTable('User').then((exists) => { console.log(`User table exists ${exists}`); });
@@ -64,8 +65,18 @@ export class UserService {
   }
 
   registerUser(username, email, password, dateOfBirth, gender) {
-    // store in Database
 
+    // check email & username should be unique
+
+
+    const hashPassword = this.getEncryptedPassword(password);
+    console.log(hashPassword);
+    // store in Database
+    return this.knexObj('User')
+      .insert({
+        Username: username, Email: email, Password: hashPassword,
+        DOB: dateOfBirth, Gender: gender
+      });
     // on success return success response
 
     // on failure return error response
