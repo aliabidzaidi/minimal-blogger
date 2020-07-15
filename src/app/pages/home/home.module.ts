@@ -11,7 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListblogComponent } from './listblog/listblog.component';
 import { AddblogComponent } from './addblog/addblog.component';
-
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,14 @@ import { AddblogComponent } from './addblog/addblog.component';
   ],
   imports: [
     CommonModule,
+    NzGridModule,
     NzLayoutModule,
     NzMenuModule,
     IconsProviderModule,
-    // BrowserModule,
+    NzCardModule,
+    NzAvatarModule,
     FormsModule,
     HttpClientModule,
-    // BrowserAnimationsModule,
     HomeRoutingModule,
   ]
 })
