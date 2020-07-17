@@ -14,13 +14,10 @@ import { AddblogComponent } from './addblog/addblog.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    ListblogComponent,
-    AddblogComponent
-  ],
+  declarations: [HomeComponent, ListblogComponent, AddblogComponent],
   imports: [
     CommonModule,
     NzGridModule,
@@ -32,6 +29,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
     FormsModule,
     HttpClientModule,
     HomeRoutingModule,
-  ]
+    EditorModule,
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}
