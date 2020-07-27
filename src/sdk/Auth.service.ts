@@ -7,6 +7,7 @@ export class AuthService {
 
   // Check if LocalStorage empty
   checkUser() {
+    // Change to read username,email & DOB ..
     if (localStorage.length === 3) {
       return true;
     } else {

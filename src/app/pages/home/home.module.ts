@@ -15,6 +15,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [HomeComponent, ListblogComponent, AddblogComponent],
@@ -30,6 +31,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     HttpClientModule,
     HomeRoutingModule,
     EditorModule,
+    QuillModule.forRoot({}),
   ],
 })
 export class HomeModule {}

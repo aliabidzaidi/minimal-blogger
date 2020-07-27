@@ -1,31 +1,4 @@
 <p>addblog works!</p>
 
-<!-- Add Rich text editor -->
-
-<!-- <editor apiKey="mihkkmhzw1zvop2eceflvdmsdu5t89a8x4wnmzd4l8z6ycm4" [init]="{
-     height: 500,
-     menubar: false,
-     plugins: [
-       'advlist autolink lists link image charmap print preview anchor',
-       'searchreplace visualblocks code fullscreen',
-       'insertdatetime media table paste code help wordcount'
-     ],
-     toolbar:
-       'undo redo | formatselect | bold italic backcolor | \
-       alignleft aligncenter alignright alignjustify | \
-       bullist numlist outdent indent | removeformat | help'
-   }"></editor> -->
-
-<editor apiKey="mihkkmhzw1zvop2eceflvdmsdu5t89a8x4wnmzd4l8z6ycm4" [init]="{
-    height: 500,
-    menubar: false,
-    toolbar: false,
-    skin: 'snow',
-    icons: 'thin',
-    plugins: [
-      'autoresize quickbars image media table hr paste'
-    ],
-    placeholder: 'Tell your story...',
-  quickbars_selection_toolbar: 'bold italic link | h1 h2 | blockquote',
-  quickbars_insert_toolbar: 'image media table hr'
-  }"></editor>
+<quill-editor #editor [modules]="modules" (contentChanged)="logChange($event);">
+</quill-editor>
