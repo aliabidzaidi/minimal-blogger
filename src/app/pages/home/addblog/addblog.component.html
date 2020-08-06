@@ -1,4 +1,22 @@
-<p>addblog works!</p>
+<input type=text class="input-title" placeholder="Title ?!" [formControl]="title">
 
 <quill-editor #editor [modules]="modules" (contentChanged)="logChange($event);">
 </quill-editor>
+
+
+<div class="row">
+</div>
+
+
+<div nz-row>
+  <div nz-col nzFlex="auto"></div>
+  <div nz-col>
+    <button nz-button nzType="default" class="add-btn">AutoSave
+      <i nz-icon [nzType]="'sync'" [nzSpin]="isAutoSaving"></i>
+      <i nz-icon  [nzSpin]="isAutoSaving" [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i>
+   
+    </button>
+
+    <button nz-button nzType="primary" class="add-btn save-btn" (click)="saveBlog()">Save</button>
+  </div>
+</div>

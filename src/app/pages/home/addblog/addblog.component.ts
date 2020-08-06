@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 // install @angular/core, @angular/common, @angular/forms, @angular/platform-browser, quill, and rxjs
 @Component({
@@ -8,11 +9,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class AddblogComponent implements OnInit {
   @ViewChild('editor') editor;
+  title = new FormControl('');
+  isAutoSaving = false;
 
   modules = {
-    formula: true,
+    // formula: true,
     toolbar: [
-      [{ header: [1, 2, false] }],
+      // [{ header: [1, 2, false] }],
+      [{ header: 1 }],
+      [{ header: 2 }],
+      ['clean'],
+      [{ color: [] }, { background: ['#f00', '#0f0', '#00f'] }],
       ['bold', 'italic', 'underline'],
       ['image', 'code-block'],
     ],
@@ -20,20 +27,15 @@ export class AddblogComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.initComponent();
-  }
+  ngOnInit(): void {}
 
   logChange($event) {
     console.log(this.editor);
     console.log($event);
   }
 
-  initComponent() {
-    // setTimeout(() => {
-    //   console.log('timeout called');
-    //   let el = document.querySelector('.tox-statusbar__branding').style.display = 'none';
-    // }, 2000);
+  saveBlog() {
+    this.isAutoSaving = !this.isAutoSaving;
   }
 
   // Add  Title text box

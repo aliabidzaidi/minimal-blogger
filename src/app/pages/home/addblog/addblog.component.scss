@@ -1,3 +1,50 @@
 .tox-statusbar__branding {
   display: none;
 }
+
+.input-title {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  appearance: textfield;
+  background-color: -internal-light-dark(#000000, #3b3b3b);
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(#363636, #272727);
+  border-image: initial;
+
+  width: 100%;
+  // padding: 10px;
+  display: block;
+  background: 0;
+  border: 0;
+  border-bottom: 2px solid #878787;
+  color: #363636;
+  font-size: 24px;
+  font-weight: 500;
+  outline: 0;
+  text-align: left;
+  transition: border-color 0.2s ease, border 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.input-title:focus {
+  border-bottom: 2px solid #363636;
+}
+
+:host::ng-deep .ql-container {
+  height: 450px;
+}
+
+.add-btn{
+  margin: 10px;
+
+  .save-btn{
+  }
+}

@@ -6,7 +6,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { IconsProviderModule } from 'src/app/icons-provider.module';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListblogComponent } from './listblog/listblog.component';
@@ -16,6 +16,8 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { QuillModule } from 'ngx-quill';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @NgModule({
   declarations: [HomeComponent, ListblogComponent, AddblogComponent],
@@ -28,8 +30,11 @@ import { QuillModule } from 'ngx-quill';
     NzCardModule,
     NzAvatarModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     HomeRoutingModule,
+    NzButtonModule,
+    NzInputModule,
     EditorModule,
     QuillModule.forRoot({}),
   ],
