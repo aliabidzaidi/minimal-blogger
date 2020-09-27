@@ -14,6 +14,11 @@ Under development 🔃
 npm run go
 `
 <br>
+
+Test Login Credentials
+username: admin
+password: 123456
+
 <br>
 
 ### Developed Using

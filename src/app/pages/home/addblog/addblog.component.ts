@@ -1,5 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { DbCallerService } from 'src/sdk/data-access/dbCaller.service';
+import { Interface } from 'readline';
 
 // install @angular/core, @angular/common, @angular/forms, @angular/platform-browser, quill, and rxjs
 @Component({
@@ -10,8 +17,21 @@ import { FormControl } from '@angular/forms';
 export class AddblogComponent implements OnInit {
   @ViewChild('editor') editor;
   title = new FormControl('');
-  isAutoSaving = false;
 
+  listOfCategories: Array<{ label: string; value: string }> = [
+    { label: 'C language', value: 'clang' },
+    { label: 'TypeScript', value: 'typescript' },
+    { label: 'JavaScript', value: 'javascript' },
+    { label: 'C Sharp', value: 'csharp' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'MongoDB', value: 'mongodb' },
+    { label: 'SQL Server', value: 'sqlserver' },
+    { label: 'NodeJS', value: 'nodejs' },
+  ];
+  blogForm: FormGroup;
+
+  isAutoSaving = false;
+  isSaved = true;
   modules = {
     // formula: true,
     toolbar: [
@@ -24,29 +44,86 @@ export class AddblogComponent implements OnInit {
       ['image', 'code-block'],
     ],
   };
+  listOfOption: Array<{ label: string; value: string }> = [];
 
-  constructor() {}
+  constructor(private dbCaller: DbCallerService, private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const children: Array<{ label: string; value: string }> = [];
+    for (let opt of this.listOfCategories) {
+      console.log(opt);
+      children.push({ label: opt.label, value: opt.value });
+    }
 
-  logChange($event) {
-    console.log(this.editor);
-    console.log($event);
+    // for (let i = 10; i < 36; i++) {
+    //   children.push({ label: i.toString(36) + i, value: i.toString(36) + i });
+    // }
+    this.listOfOption = children;
+    this.formInitializer();
+
+    this.blogForm.valueChanges.subscribe(console.log);
+  }
+
+  print() {}
+
+  formInitializer() {
+    this.blogForm = this.fb.group({
+      tags: new FormControl([]), //array of strings
+      published: [false, [Validators.required]], // boolean
+      date: '', // date
+      title: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(250),
+        ],
+      ], // string
+      body: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(2500),
+        ],
+      ],
+    });
   }
 
   saveBlog() {
-    this.isAutoSaving = !this.isAutoSaving;
+    // this.isAutoSaving = !this.isAutoSaving;
+    // this.isSaved = !this.isSaved;
+    this.blogForm.patchValue({
+      body: document.querySelector('.ql-editor').innerHTML,
+    });
+    console.log();
+    if (!this.blogForm.valid) {
+      console.log('form is dirty');
+    } else {
+      console.log('Form submitted with =>', this.blogForm.value);
+    }
+    // console.log(this.editor);
+    // let blog = new Blog();
+    // blog.Title = this.title.value;
+    // blog.Title = this.title.value;
   }
 
-  // Add  Title text box
+  getDateNow() {
+    console.log(Date().toString());
+    this.blogForm.patchValue({
+      date: Date(),
+    });
+  }
+}
 
-  // Save blog (autosave draft)
-  // Publish blog button
-  // Autosave button
+class Blog {
+  id: Number;
+  title: string;
+  body: string;
+  date: string;
+  published: string;
+  tags: [];
+  userId: Number;
 
-  // delete draft
-
-  // think about edit blog ??
-
-  // Add tags to blogs
+  constructor() {}
 }

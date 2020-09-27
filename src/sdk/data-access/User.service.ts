@@ -25,7 +25,7 @@ export class UserService {
         useNullAsDefault: true
       });
 
-      this.knexObj.schema.hasTable('User').then((exists) => { console.log(`User table exists ${exists}`); });
+      // this.knexObj.schema.hasTable('User').then((exists) => { console.log(`User table exists ${exists}`); });
 
 
     }

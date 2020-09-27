@@ -1,22 +1,78 @@
-<input type=text class="input-title" placeholder="Title ?!" [formControl]="title">
-
-<quill-editor #editor [modules]="modules" (contentChanged)="logChange($event);">
-</quill-editor>
-
-
-<div class="row">
-</div>
-
+<!-- Inputs
+  1. Tags
+  2. Published
+  3. Date
+  4. Title
+  5. Body
+ -->
 
 <div nz-row>
   <div nz-col nzFlex="auto"></div>
   <div nz-col>
-    <button nz-button nzType="default" class="add-btn">AutoSave
-      <i nz-icon [nzType]="'sync'" [nzSpin]="isAutoSaving"></i>
-      <i nz-icon  [nzSpin]="isAutoSaving" [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i>
-   
-    </button>
-
-    <button nz-button nzType="primary" class="add-btn save-btn" (click)="saveBlog()">Save</button>
+    <div>
+      <div *ngIf="!isSaved">Unsaved
+        <!-- <i nz-icon [nzType]="'sync'" [nzSpin]="isAutoSaving"></i> -->
+        <i nz-icon nzType="stop" nzTheme="twotone" [nzTwotoneColor]="'#b51b1b'"></i>
+      </div>
+      <div *ngIf="isSaved">Saved
+        <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i>
+      </div>
+    </div>
   </div>
 </div>
+
+<form [formGroup]="blogForm" (ngSubmit)="saveBlog()">
+  Value: {{blogForm.value | json}}
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="published" nzRequired>Published</nz-form-label>
+
+    <nz-form-control [nzSpan]="20">
+      <nz-switch formControlName="published"></nz-switch>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="date" nzRequired>Date</nz-form-label>
+
+    <nz-form-control [nzSpan]="20">
+      <nz-date-picker formControlName="date"></nz-date-picker>
+      <button nz-button nzType="default" type="button" (click)="getDateNow()">Date Now</button>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="tags" nzRequired>Tags</nz-form-label>
+
+    <nz-form-control [nzSpan]="20">
+      <nz-select nzMode="tags" nzPlaceHolder="Select Tags" formControlName="tags">
+        <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value">
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="title" nzRequired>Title</nz-form-label>
+
+    <nz-form-control [nzSpan]="20">
+      <input nz-input nzSize="large" formControlName="title" placeholder="Enter your Title" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <quill-editor #editor [modules]="modules"></quill-editor>
+
+  <div nz-row>
+    <div nz-col nzFlex="auto"></div>
+    <div nz-col>
+      <!-- <button nz-button nzType="default" class="add-btn">AutoSave
+        <i nz-icon [nzType]="'sync'" [nzSpin]="isAutoSaving"></i>
+      </button> -->
+
+      <button nz-button nzType="primary" class="add-btn save-btn" type="submit">Save</button>
+    </div>
+  </div>
+
+
+</form>

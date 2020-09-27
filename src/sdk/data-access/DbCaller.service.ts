@@ -8,11 +8,11 @@ import * as Knex from 'knex';
   providedIn: 'root'
 })
 export class DbCallerService {
-  ipcRenderer: typeof ipcRenderer;
-  webFrame: typeof webFrame;
-  remote: typeof remote;
-  childProcess: typeof childProcess;
-  fs: typeof fs;
+  // ipcRenderer: typeof ipcRenderer;
+  // webFrame: typeof webFrame;
+  // remote: typeof remote;
+  // childProcess: typeof childProcess;
+  // fs: typeof fs;
   knexObj: Knex;
 
   get isElectron(): boolean {
@@ -21,12 +21,12 @@ export class DbCallerService {
 
   constructor() {
     if (this.isElectron) {
-      this.ipcRenderer = window.require('electron').ipcRenderer;
-      this.webFrame = window.require('electron').webFrame;
-      this.remote = window.require('electron').remote;
+      // this.ipcRenderer = window.require('electron').ipcRenderer;
+      // this.webFrame = window.require('electron').webFrame;
+      // this.remote = window.require('electron').remote;
 
-      this.childProcess = window.require('child_process');
-      this.fs = window.require('fs');
+      // this.childProcess = window.require('child_process');
+      // this.fs = window.require('fs');
 
       this.knexObj = window.require('knex')({
         client: "sqlite3",
@@ -34,7 +34,7 @@ export class DbCallerService {
           filename: "./database.sqlite",
         },
       });
-      this.knexObj.schema.hasTable('User').then(function (exists) { console.log(`User table exists ${exists}`); });
+      // this.knexObj.schema.hasTable('User').then(function (exists) { console.log(`User table exists ${exists}`); });
 
 
     }
@@ -44,6 +44,13 @@ export class DbCallerService {
     console.log('get names called');
     let names: any[];
     return this.knexObj.select("*").from("User");
+  }
+
+  saveBlog(blog){
+    console.log('Save blog called');
+    
+    console.log(blog);
+    // this.knexObj.insert(blog).into('Blog');
   }
 
 

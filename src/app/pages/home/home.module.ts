@@ -18,6 +18,10 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { QuillModule } from 'ngx-quill';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   declarations: [HomeComponent, ListblogComponent, AddblogComponent],
@@ -34,7 +38,11 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     HttpClientModule,
     HomeRoutingModule,
     NzButtonModule,
+    NzFormModule,
     NzInputModule,
+    NzSwitchModule,
+    NzDatePickerModule,
+    NzSelectModule,
     EditorModule,
     QuillModule.forRoot({}),
   ],
