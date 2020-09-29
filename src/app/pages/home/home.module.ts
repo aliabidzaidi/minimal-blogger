@@ -23,11 +23,13 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 @NgModule({
   declarations: [HomeComponent, ListblogComponent, AddblogComponent],
   imports: [
     CommonModule,
+    NzTableModule,
     NzGridModule,
     NzLayoutModule,
     NzMenuModule,

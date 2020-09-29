@@ -7,7 +7,7 @@ import { DbCallerService } from 'src/sdk/data-access/dbCaller.service';
   styleUrls: ['./listblog.component.scss'],
 })
 export class ListblogComponent implements OnInit {
-  blogs = null;
+  blogs = [];
   dummyDescription =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim rerum eius ab itaque soluta excepturi, nesciunt maxime dicta tenetur impedit. Totam harum laborum doloribus at saepe atque nesciunt! Possimus, placeat.';
   dummyDescription2 =

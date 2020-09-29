@@ -1,29 +1,35 @@
 <!-- Show list of cards over here -->
-
-
 <div>
   <div nz-row [nzGutter]="[8,16]">
-    <div nz-col [nzSpan]="8">
-      <nz-card style="" [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
-        <nz-card-meta nzTitle="Blog Heading QWERTY" nzDescription="{{dummyDescription}}" class="card-meta">></nz-card-meta>
+    <!-- <div nz-col [nzSpan]="8">
+      <nz-card [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
+        <nz-card-meta nzTitle="Blog Heading QWERTY" nzDescription="{{dummyDescription}}" class="card-meta">>
+        </nz-card-meta>
       </nz-card>
     </div>
 
     <div nz-col [nzSpan]="8">
-      <nz-card style="" [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
-        <nz-card-meta nzTitle="Blog Heading ASDFGH" nzDescription="{{dummyDescription2}}" class="card-meta"></nz-card-meta>
+      <nz-card [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
+        <nz-card-meta nzTitle="Blog Heading ASDFGH" nzDescription="{{dummyDescription2}}" class="card-meta">
+        </nz-card-meta>
       </nz-card>
     </div>
 
     <div nz-col [nzSpan]="8">
-      <nz-card style="" [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
-        <nz-card-meta nzTitle="Blog Heading ZXCVBN" nzDescription="{{dummyDescription}}" class="card-meta">></nz-card-meta>
+      <nz-card [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
+        <nz-card-meta nzTitle="Blog Heading ZXCVBN" nzDescription="{{dummyDescription}}" class="card-meta">>
+        </nz-card-meta>
+      </nz-card>
+    </div> -->
+
+    <div nz-col [nzSpan]="8" *ngFor="let blog of blogs">
+      <nz-card [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
+        <nz-card-meta nzTitle="{{blog.Title}}" nzDescription="{{blog.Body}}" class="card-meta">
+        </nz-card-meta>
       </nz-card>
     </div>
   </div>
 </div>
-
-
 
 <ng-template #avatarTemplate>
   <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
@@ -37,3 +43,24 @@
 <ng-template #actionEdit>
   <i nz-icon nzType="edit" nzTheme="twotone"></i>
 </ng-template>
+
+
+
+<!-- <nz-table #basicTable [nzData]="blogs">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Published</th>
+      <th>tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of blogs">
+      <td>{{data.Title}}</td>
+      <td>{{data.Date}}</td>
+      <td>{{data.Published}}</td>
+      <td>{{data.Tags}}</td>
+    </tr>
+  </tbody>
+</nz-table> -->

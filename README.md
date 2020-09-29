@@ -21,16 +21,18 @@ password: 123456
 
 <br>
 
-### Developed Using
-<div style="text-align:centaer;">
+### Technologies Used
+
+
+<div align="center">
 
 
 <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" style="margin:10px 40px;" height="80">
 
-<img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" style="margin:10px 40px" height="80">
+<img src="https://angular.io/assets/images/logos/angular/angular.png" style="margin:10px 40px" height="80">
 
 </div>
-<div style="text-align:centaer;">
+<div align="center">
 
-<img src="https://electronjs.org/images/electron-logo.svg" style="margin:20px 40px" height="50">
+<img src="https://electronjs.org/images/electron-logo.svg" style="margin:20px 40px" height="60">
 </div>
