@@ -35,8 +35,8 @@
 
   <nz-form-item>
     <nz-form-label [nzSpan]="4" nzFor="date" nzRequired>Date</nz-form-label>
-
-    <nz-form-control [nzSpan]="20">
+    <!-- nzValidateStatus="error" nzErrorTip="" [nzSpan]="12" -->
+    <nz-form-control [nzSpan]="20" nzErrorTip="Date field cannot be empty">
       <nz-date-picker formControlName="date"></nz-date-picker>
       <button nz-button nzType="default" type="button" (click)="getDateNow()">Date Now</button>
     </nz-form-control>
@@ -56,12 +56,19 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="4" nzFor="title" nzRequired>Title</nz-form-label>
 
-    <nz-form-control [nzSpan]="20">
+    <nz-form-control [nzSpan]="20" nzErrorTip="Title field cannot be empty">
       <input nz-input nzSize="large" formControlName="title" placeholder="Enter your Title" />
     </nz-form-control>
   </nz-form-item>
 
-  <quill-editor #editor [modules]="modules"></quill-editor>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="body" nzRequired>Body</nz-form-label>
+
+    <nz-form-control [nzSpan]="20" nzErrorTip="Body cannot be empty">
+      <input type="hidden" nz-input nzSize="large" formControlName="body" placeholder="Enter your Title" />
+      <quill-editor [modules]="modules"></quill-editor>
+    </nz-form-control>
+  </nz-form-item>
 
   <div nz-row>
     <div nz-col nzFlex="auto"></div>

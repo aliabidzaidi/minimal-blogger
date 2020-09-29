@@ -63,11 +63,12 @@ nz-header {
 
 .app-header {
   position: relative;
-  height: 64px;
-  padding: 0;
+  height: 70px;
+  padding: 0 10px 10px 10px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
+
 
 nz-content {
   margin: 24px;

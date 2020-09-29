@@ -40,12 +40,25 @@
 
 :host::ng-deep .ql-container {
   height: 450px;
+  
+  .ql-toolbar {
+    border-radius: 2px;
+  }
+  .ql-editor {
+    border-radius: 2px;
+  }
+
+}
+:host::ng-deep .ant-form-item-has-error {
+  .ql-editor {
+    border: 1px solid #ff7875;
+  }
 }
 
-.add-btn{
+.add-btn {
   margin: 10px;
 
-  .save-btn{
+  .save-btn {
   }
 }
 

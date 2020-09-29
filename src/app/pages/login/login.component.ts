@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
           // if remember ==true r&d on that keep him logged in even if he closes the app
 
           // redirect to homepage
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/home/blogs');
         }
         else {
           this.toastr.error('Login credentials incorrect', 'Failed!', {

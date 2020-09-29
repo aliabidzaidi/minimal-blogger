@@ -8,26 +8,20 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Blogs" nzIcon="file-protect">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/home/users">Users</a>
+            <a routerLink="/home/blogs">List</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/home/blogs">Blogs</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/home/blog/add">Add Blog</a>
+            <a routerLink="/home/blog/add">Add</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <li nz-submenu nzOpen nzTitle="Management" nzIcon="usergroup-add">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink='/login'>Login</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a (click)="logout()">Logout</a>
+            <a routerLink="/home/users">All Users</a>
           </li>
         </ul>
       </li>
@@ -35,10 +29,27 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
-        </span>
+      <div nz-row nzAlign="top" class="app-header">
+        <div nz-col nzFlex="auto">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+          </span>
+        </div>
+        <div>
+          <nz-button-group>
+            <button nz-button (click)="log()">{{username}}</button>
+            <button nz-button nz-dropdown [nzDropdownMenu]="menu2" nzPlacement="bottomRight">
+              <i nz-icon nzType="user"></i>
+            </button>
+            <nz-dropdown-menu #menu2="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <a (click)="logout()">Logout</a>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </nz-button-group>
+        </div>
       </div>
     </nz-header>
     <nz-content>

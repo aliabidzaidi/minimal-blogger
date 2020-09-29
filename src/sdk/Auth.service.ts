@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-
 export class AuthService {
-  constructor() { }
+  constructor() {}
 
   // Check if LocalStorage empty
   checkUser() {
-    // Change to read username,email & DOB ..
-    if (localStorage.length === 3) {
+    // Change to login token
+    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
+    const userId = localStorage.getItem('userId');
+    if (userId!=null && username != null && email != null) {
       return true;
     } else {
       return false;
@@ -26,15 +28,14 @@ export class AuthService {
     this.removeSessions();
   }
 
-
   private setSessions(user) {
     localStorage.setItem('username', user.Username);
     localStorage.setItem('email', user.Email);
+    localStorage.setItem('userId', user.Id);
     localStorage.setItem('DOB', user.DOB);
   }
 
   private removeSessions() {
     localStorage.clear();
   }
-
 }

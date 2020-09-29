@@ -9,13 +9,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   isCollapsed = false;
-
+  username = '🤔🤔🤔';
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.username = localStorage.getItem('username');
+  }
 
   logout() {
+    console.log('logging out');
     this.authService.removeUser();
     this.router.navigateByUrl('/login');
+  }
+
+  log() {
+    console.log('Profile button clicked');
   }
 }

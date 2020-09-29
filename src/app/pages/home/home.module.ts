@@ -22,6 +22,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 @NgModule({
   declarations: [HomeComponent, ListblogComponent, AddblogComponent],
@@ -30,6 +31,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzGridModule,
     NzLayoutModule,
     NzMenuModule,
+    NzDropDownModule,
     IconsProviderModule,
     NzCardModule,
     NzAvatarModule,
