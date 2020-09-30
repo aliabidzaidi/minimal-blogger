@@ -22,12 +22,93 @@
       </nz-card>
     </div> -->
 
-    <div nz-col [nzSpan]="8" *ngFor="let blog of blogs">
+    <!-- <div nz-col [nzSpan]="8" *ngFor="let blog of blogs">
       <nz-card [nzCover]="coverTemplate" [nzActions]="[actionView, actionEdit]">
         <nz-card-meta nzTitle="{{blog.Title}}" nzDescription="{{blog.Body}}" class="card-meta">
         </nz-card-meta>
       </nz-card>
-    </div>
+    </div> -->
+
+    <nz-list [nzSplit]=true nzItemLayout="vertical" style="margin: 8px;">
+
+      <nz-list-item *ngFor="let blog of blogs">
+
+        <div class="container mt-5">
+          <a class="text-dark" [routerLink]="['blogs/'+blog.Id]">
+            <h2 class="title">{{blog.Title}}</h2>
+          </a>
+          <small class="d-block text-info">
+            <!-- <i>Posted on September 22, 2020</i> -->
+            <i>{{blog.Date}}</i>
+          </small>
+          <!-- {{blog.Body}} -->
+          <p class="mt-3 d-inline blog-post" [innerHTML]="blog.Body" nz-typography nzEllipsis nzEllipsisRows="3">
+          </p>
+          <a class="text-primary" [routerLink]="['blogs/'+blog.Id]"><small class="d-inline-block ml-3"> Read full
+              post</small></a>
+          <div class="d-block">
+            <nz-tag *ngFor="let tag of blog.Tags.split(',')">{{tag}}</nz-tag>
+          </div>
+        </div>
+
+      </nz-list-item>
+
+
+      <!-- <nz-list-item *ngFor="let blog of blogs">
+
+        <nz-list-item-meta>
+          <nz-list-item-meta-title class="list-item-title">
+            <a href="">{{ blog.Title }}</a>
+          </nz-list-item-meta-title>
+          <nz-list-item-meta-description>
+            {{ blog.Date }}
+          </nz-list-item-meta-description>
+        </nz-list-item-meta>
+        <div class="blog-post" [innerHTML]="blog.Body"></div>
+
+        <ul nz-list-item-actions>
+          <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i>23</nz-list-item-action>
+          <nz-list-item-action><i nz-icon nzType="comment" style="margin-right: 8px;"></i>156</nz-list-item-action>
+          <nz-list-item-action><i nz-icon nzType="eye" style="margin-right: 8px;"></i>1021</nz-list-item-action>
+        </ul>
+        <nz-list-item-extra>
+          <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />
+        </nz-list-item-extra>
+
+
+        <nz-list-footer>
+          <nz-tag *ngFor="let tag of blog.Tags.split(',')">{{tag}}</nz-tag>
+        </nz-list-footer>
+      </nz-list-item> -->
+
+      <!-- <nz-list-item *ngFor="let blog of blogs">
+        <nz-list-item-meta>
+          <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+
+          <nz-list-item-meta-title>
+            <a [routerLink]="['blogs/'+blog.Id]">
+              {{blog.Title}}
+            </a>
+          </nz-list-item-meta-title>
+
+          <nz-list-item-meta-description>
+            <ul nz-list-item-actions>
+              <nz-list-item-action>
+                <nz-tag>{{blog.Tags}}</nz-tag>
+              </nz-list-item-action>
+              <nz-list-item-action *ngFor="let tag of blog.Tags.split(',')">
+                <nz-tag>{{tag}}</nz-tag>
+              </nz-list-item-action>
+
+            </ul>
+          </nz-list-item-meta-description>
+
+        </nz-list-item-meta>
+
+        {{blog.Body}}
+      </nz-list-item> -->
+    </nz-list>
+
   </div>
 </div>
 

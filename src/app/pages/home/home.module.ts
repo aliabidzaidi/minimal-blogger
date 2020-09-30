@@ -24,15 +24,25 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzListModule, NzTagModule, NzTypographyModule } from 'ng-zorro-antd';
+import { LinkifyPipe } from 'src/sdk/LinkifyPipe';
 
 @NgModule({
-  declarations: [HomeComponent, ListblogComponent, AddblogComponent],
+  declarations: [
+    HomeComponent,
+    ListblogComponent,
+    AddblogComponent,
+    LinkifyPipe,
+  ],
   imports: [
     CommonModule,
+    NzTypographyModule,
     NzTableModule,
     NzGridModule,
     NzLayoutModule,
     NzMenuModule,
+    NzListModule,
+    NzTagModule,
     NzDropDownModule,
     IconsProviderModule,
     NzCardModule,

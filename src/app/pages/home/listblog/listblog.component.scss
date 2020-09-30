@@ -6,9 +6,23 @@
   // margin-bottom: 20px;
 }
 
+.list-item-title {
+  font-size: 24px;
+}
+
+:host::ng-deep .blog-post {
+  font-size: 16px;
+  font-weight: 400;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 16px;
+  }
+}
+
 // .action-icon:hover {
 //   transform: scale(1.4);
 //   transition: transform 0.3s ease-in-out;
 //   will-change: transform;
 // }
-
