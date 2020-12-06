@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { ListblogComponent } from './listblog/listblog.component';
 import { AddblogComponent } from './addblog/addblog.component';
+import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       { path: 'users', loadChildren: () => import('../welcome/welcome.module').then(m => m.WelcomeModule) },
       { path: 'blogs', component: ListblogComponent },
-      { path: 'blog/add', component: AddblogComponent }
+      { path: 'blog/add', component: AddblogComponent },
+      { path: 'blog/:id', component: BlogComponent},
     ]
   },
 ];

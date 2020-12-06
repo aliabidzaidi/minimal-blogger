@@ -51,6 +51,14 @@ export class DbCallerService {
     return this.knexObj.select('*').from('Blog');
   }
 
+  getBlogById(id): Promise<any> {
+    console.log('fetching BlogById with id =>', id);
+    let blog: any;
+    return this.knexObj.select('*').from('Blog').where({
+      Id: id,
+    });
+  }
+
   saveBlog(blog: Blog) {
     console.log('Save blog called with =>', blog);
 
