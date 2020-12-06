@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DbCallerService } from 'src/sdk/data-access/dbCaller.service';
 
-
 @Component({
   selector: 'app-listblog',
   templateUrl: './listblog.component.html',
@@ -34,7 +33,6 @@ export class ListblogComponent implements OnInit {
     this.dbCaller.getAllBlogs().then((data) => {
       console.log('Inside List Blog component =>', data);
       this.blogs = data;
-
     });
     console.log(this.blogs);
   }

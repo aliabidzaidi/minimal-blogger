@@ -26,6 +26,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzListModule, NzTagModule, NzTypographyModule } from 'ng-zorro-antd';
 import { LinkifyPipe } from 'src/sdk/LinkifyPipe';
+import { BlogHeadlinePipe } from 'src/sdk/BlogHeadlinePipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LinkifyPipe } from 'src/sdk/LinkifyPipe';
     ListblogComponent,
     AddblogComponent,
     LinkifyPipe,
+    BlogHeadlinePipe,
   ],
   imports: [
     CommonModule,

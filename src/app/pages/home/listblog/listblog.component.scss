@@ -26,3 +26,16 @@
 //   transition: transform 0.3s ease-in-out;
 //   will-change: transform;
 // }
+
+
+.blogList{
+  display: flex;
+  flex-direction: column;
+}
+
+.blog{
+  height: 150px;
+  margin: 5px;
+  background-color: #1111110c;
+  overflow: hidden;
+}

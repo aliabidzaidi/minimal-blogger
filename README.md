@@ -11,7 +11,7 @@ Under development 🔃
 
 ## Development server
 `
-npm run go
+npm run all
 `
 <br>
 
