@@ -29,7 +29,7 @@
     "bcryptjs": "^2.4.3",
     "crypto-js": "^4.0.0",
     "electron": "^9.0.5",
-    "knex": "^0.21.1",
+    "knex": "^2.4.0",
     "ng-zorro-antd": "^9.1.2",
     "ngx-electron": "^2.2.0",
     "ngx-quill": "^12.0.1",
